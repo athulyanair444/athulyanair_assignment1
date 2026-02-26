@@ -1,0 +1,79 @@
+<!--
+Program name: thankyou.html
+Author: Athulya Nair
+Date created: 02/25/2026
+Date last edited: 02/25/2026
+Version: 1.0
+Description: Confirmation page for the patient registration form submission.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thank You</title>
+  <link href="style.css" rel="stylesheet" />
+
+  <script>
+    function setBannerDate() {
+      const now = new Date();
+      const options = { weekday: "long", year: "numeric", month: "long", day: "numeric" };
+      document.getElementById("todayDate").textContent = now.toLocaleDateString(undefined, options);
+    }
+    window.addEventListener("DOMContentLoaded", setBannerDate);
+  </script>
+</head>
+
+<body>
+  <div id="banner">
+    <div class="banner-left">
+      <img src="logo.png" alt="WeRDocs Medical Logo" id="logo" />
+    </div>
+
+    <div class="banner-center">
+      <h1>WeRDocs Medical</h1>
+      <p class="tagline">Patient Registration</p>
+    </div>
+
+    <div class="banner-right">
+      <p class="date-line">Today is:</p>
+      <p class="date" id="todayDate"></p>
+    </div>
+  </div>
+
+  <div id="main">
+    <h2>Thank you for your submission.</h2>
+    <p>We have received your registration information.</p>
+    <p><a href="patient-form.html">Return to the Registration Form</a></p>
+  </div>
+
+  <div id="footer">
+    <div class="footer-left">
+      <strong>WeRDocs Medical</strong><br />
+      PO BOX 18881<br />
+      Sugar Land, TX 77496
+    </div>
+
+    <div class="footer-center">
+      <button type="button" class="btn footer-btn" onclick="alert('Contact Us: info@werdocs.example')">
+        CONTACT US
+      </button>
+    </div>
+
+    <div class="footer-right">
+      <a href="https://www.facebook.com" target="_blank" rel="noopener">Facebook</a>
+      <span class="dot">•</span>
+      <a href="https://www.twitter.com" target="_blank" rel="noopener">Twitter</a>
+      <span class="dot">•</span>
+      <a href="https://www.instagram.com" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </div>
+
+  <!-- End of file: thankyou.html -->
+</body>
+</html>
+
+<!--
+END OF DOCUMENT: Homework 1
+-->
