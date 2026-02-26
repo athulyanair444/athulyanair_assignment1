@@ -1,0 +1,189 @@
+/*
+Program name: style.css
+Author: Athulya Nair
+Date created: 02/25/2026
+Date last edited: 02/25/2026
+Version: 1.0
+Description: External stylesheet for Homework 1 Patient Registration Form. Demonstrates tag, class, id selectors and link states.
+*/
+
+/* Tag selector */
+body {
+  font-family: "Trebuchet MS", Arial, sans-serif;
+  background-color: #f2f6ff; /* non-default background */
+  margin: 0;
+  color: #1f2a44;
+}
+
+/* ID selector */
+#banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  background-color: #0f2a5f;
+  color: #ffffff;
+  border-bottom: 4px solid #102a43;
+}
+
+/* ID selector */
+#logo {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.12);
+  padding: 6px;
+}
+
+/* Class selectors */
+.banner-center h1 {
+  margin: 0;
+  font-size: 26px;
+  letter-spacing: 0.5px;
+}
+
+.tagline {
+  margin: 4px 0 0 0;
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+/* ID selector */
+#main {
+  max-width: 860px;
+  margin: 18px auto;
+  background-color: #ffffff;
+  padding: 18px;
+  border-radius: 12px;
+  box-shadow: 0 8px 22px rgba(16, 42, 67, 0.10);
+}
+
+h2 {
+  color: #0f2a5f; /* heading color (non-default) */
+  margin-top: 0;
+}
+
+/* Table styling */
+.form-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.form-table td {
+  padding: 10px 8px;
+  vertical-align: top;
+}
+
+.form-table .label {
+  width: 220px;
+  font-weight: bold;
+  color: #102a43;
+}
+
+/* Name selector example (selector by name attribute) */
+input[name="userId"] {
+  border-left: 4px solid #0f2a5f;
+}
+
+/* Inputs */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select,
+textarea {
+  width: 360px;
+  max-width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #b9c6d3;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.hint {
+  display: inline-block;
+  margin-left: 10px;
+  font-size: 12px;
+  color: #5a6b7d;
+}
+
+.group-title {
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.pill {
+  display: inline-block;
+  margin-left: 10px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background-color: #e9f2ff;
+  color: #0f2a5f;
+  font-size: 12px;
+}
+
+/* Buttons */
+.buttons {
+  padding-top: 18px;
+}
+
+.btn {
+  border: none;
+  padding: 10px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn.primary {
+  background-color: #0f2a5f;
+  color: #ffffff;
+}
+
+.btn.secondary {
+  background-color: #e6edf7;
+  color: #102a43;
+  margin-right: 10px;
+}
+
+.btn.footer-btn {
+  background-color: #ffffff;
+  color: #0f2a5f;
+  border: 2px solid #0f2a5f;
+}
+
+/* Footer */
+#footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 14px 18px;
+  background-color: #102a43;
+  color: #ffffff;
+  margin-top: 22px;
+}
+
+/* Link states (required) */
+#footer a:link {
+  color: #cfe8ff;
+  text-decoration: none;
+}
+#footer a:visited {
+  color: #ffd6e7;
+}
+#footer a:hover {
+  text-decoration: underline;
+}
+#footer a:active {
+  opacity: 0.8;
+}
+
+.dot {
+  margin: 0 8px;
+  opacity: 0.8;
+}
