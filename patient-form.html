@@ -9,34 +9,34 @@ Description: Patient registration form to capture demographic and basic health i
 
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Patient Registration Form</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Patient Registration Form</title>
 
-  <!-- External CSS (required) -->
-  <link href="style.css" rel="stylesheet" />
+    <!-- External CSS (For Style) -->
+    <link href="style.css" rel="stylesheet" /> 
 
-  <script>
-    // Inline JS required for dynamic day/date in banner
-    function setBannerDate() {
-      const now = new Date();
-      const options = { weekday: "long", year: "numeric", month: "long", day: "numeric" };
-      document.getElementById("todayDate").textContent = now.toLocaleDateString(undefined, options);
-    }
-
-    function syncHealthValue(val) {
-      document.getElementById("healthValue").textContent = val;
-    }
-    );
+    <script>
+    //JavaScript for dynamic day/date in banner 
+      function setBannerDate()
+      {
+      document.getElementById("todayDate").textContent =
+      new Date().toDateString();
+      }
+      function syncHealthValue(val)
+      {
+        document.getElementById("healthValue").textContent = val;
+      }
+      );
   </script>
 </head>
 
 <body>
-  <!-- ===================== TOP / BANNER ===================== -->
+  <!--  TOP / BANNER  -->
   <div id="banner">
     <div class="banner-left">
-      <!-- Upload logo.png to same folder (NO external URL) -->
+     
       <img src="logo.png" alt="UnityCare Health Logo" id="logo" />
     </div>
 
@@ -51,11 +51,10 @@ Description: Patient registration form to capture demographic and basic health i
     </div>
   </div>
 
-  <!-- ===================== MIDDLE / FORM ===================== -->
+  <!-- FORM -->
   <div id="main">
     <h2>Create Your New Patient Account</h2>
 
-    <!-- Client-side only: no method, action goes to thankyou.html -->
     <form action="thankyou.html">
       <table class="form-table">
         <tr>
@@ -83,7 +82,9 @@ Description: Patient registration form to capture demographic and basic health i
         </tr>
 
         <tr>
-          <td class="label"><label for="dob">Date of Birth</label></td>
+          <td class="label">
+            <label for="dob">Date of Birth</label>
+          </td>
           <td>
             <input
               type="text"
