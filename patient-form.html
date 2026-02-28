@@ -20,15 +20,17 @@ Description: Patient registration form to capture demographic and basic health i
     <script>
     //JavaScript for date
       function setBannerDate() {
-      document.getElementById("todayDate").textContent =
-        new Date().toDateString();
-    }
+    document.getElementById("todayDate").textContent = new Date().toDateString();
+  }
 
-    window.addEventListener("DOMContentLoaded", () => 
-    {
-      setBannerDate();
-    }
-    );
+  function syncHealthValue(val) {
+    document.getElementById("healthValue").textContent = val;
+  }
+
+  window.addEventListener("DOMContentLoaded", () => {
+    setBannerDate();
+    syncHealthValue(document.getElementById("healthScale").value); // sets initial value
+  });
   </script>
 </head>
 
