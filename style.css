@@ -17,10 +17,18 @@ body {
 
 /* Banner */
 #banner {
-  background-color: #0d47a1; 
-  color: white;             
+  background-color: #0d47a1;
+  color: white;
   text-align: center;
   padding: 20px;
+}
+
+#banner h1 {
+  margin: 10px 0;
+}
+
+#banner p {
+  margin: 5px 0;
 }
 
 /* Logo */
