@@ -7,9 +7,6 @@ Version: 1.0
 Description: External CSS file for Patient Registration Form.
 */
 
-/* =========================
-   BASIC PAGE STYLE
-========================= */
 body {
   font-family: Arial, sans-serif;
   background-color: #eef3f9;
@@ -17,216 +14,56 @@ body {
   color: #222;
 }
 
-/* Headings (default on the page) */
 h1, h2 {
   color: #0b3d91;
 }
 
-/* Link colors (default on the page) */
-a:link { color: blue; }
-a:visited { color: purple; }
+a:link {
+  color: blue;
+}
 
-/* =========================
-   HEADER / BANNER
-   (Fix: force banner text to stay white)
-========================= */
+a:visited {
+  color: purple;
+}
+
 #banner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 14px 18px;
-  background-color: #0f2a5f;
-  color: #ffffff;
-  border-bottom: 4px solid #102a43;
-}
-
-/* Make the 3 banner sections behave evenly */
-.banner-left,
-.banner-center,
-.banner-right {
-  flex: 1;
-}
-
-.banner-center {
+  background-color: #0b3d91;
+  color: white;
+  padding: 10px;
   text-align: center;
 }
 
-.banner-right {
-  text-align: right;
+#main {
+  padding: 20px;
 }
 
-/* Fix: your global h1 rule makes h1 blue, so override it in the banner */
-#banner h1,
-#banner .tagline,
-#banner .date-line,
-#banner .date {
-  color: white;
-}
-
-#logo {
-  width: 70px;
-  height: 70px;
-  object-fit: contain;
-  /* If you want simpler, you can remove the next 3 lines */
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.12);
-  padding: 6px;
-}
-
-/* Center title size */
-.banner-center h1 {
-  margin: 0;
-  font-size: 26px;
-  letter-spacing: 0.5px;
-}
-
-#banner .tagline {
-  margin: 5px 0;
-  font-size: 22px;
-}
-
-#banner .date-line,
-#banner .date {
-  margin: 5px 0;
-  font-size: 16px;
-}
-
-/* =========================
-   MAIN SECTION / FORM
-========================= */
-#main h2 {
-  color: #0d47a1;
-  margin: 20px;
-}
-
-/* Table layout */
-table.form-table {
-  width: calc(100% - 40px);
-  border-collapse: collapse;
-  margin: 0 20px 20px 20px;
-  background-color: transparent;
-}
-
-td {
-  padding: 8px;
-  vertical-align: middle;
-}
-
-/* Label column */
-.label {
-  font-weight: bold;
-  width: 250px;
-}
-
-/* Inputs */
-input,
-select,
-textarea {
-  padding: 5px;
-  border: 1px solid #999;
-  width: 250px;
-  font-family: Arial, sans-serif;
-}
-
-textarea {
-  width: 400px;
-  height: 80px;
-}
-
-/* Small helper text */
-.hint {
-  font-size: 14px;
-  color: #333;
-  margin-left: 8px;
-}
-
-/* Optional: group title text */
-.group-title {
-  font-weight: bold;
-  margin-bottom: 6px;
-}
-
-/* The little "Value:" bubble (keep simple) */
-.pill {
-  margin-left: 10px;
-  font-weight: bold;
-}
-
-/* Buttons */
-button,
-input[type="submit"],
-input[type="reset"] {
-  background-color: #0d47a1;
-  color: white;
-  border: none;
-  padding: 8px 15px;
-  cursor: pointer;
-  margin-top: 10px;
-}
-
-/* If you have .btn classes in HTML, make them consistent */
-.btn {
-  background-color: #0d47a1;
-  color: white;
-  border: none;
-  padding: 8px 15px;
-  cursor: pointer;
-}
-
-.btn.secondary {
-  background-color: #6c757d;
-}
-
-.buttons input {
-  margin-right: 10px;
-}
-
-/* =========================
-   FOOTER (matches your HTML: <div id="footer">)
-========================= */
 #footer {
-  background-color: #0f2a5f;
+  background-color: #0b3d91;
   color: white;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 20px;
+  padding: 10px;
+  text-align: center;
   margin-top: 20px;
 }
 
-/* Left / center / right */
-.footer-left,
-.footer-center,
-.footer-right {
-  flex: 1;
+#logo {
+  width: 60px;
+  height: auto;
 }
 
-.footer-center {
-  text-align: center;
+.form-table {
+  margin: auto;
 }
 
-.footer-right {
-  text-align: right;
+.label {
+  font-weight: bold;
+  padding-right: 10px;
 }
 
-/* Footer links */
-.footer-right a {
-  color: white;
-  text-decoration: none;
-  margin: 0 5px;
+.btn {
+  padding: 6px 12px;
+  margin-right: 8px;
 }
 
-.footer-right a:hover {
-  text-decoration: underline;
-}
-
-.dot {
-  margin: 0 5px;
-}
-
-/* Footer button style */
-.footer-btn {
-  background-color: white;
-  color: #0f2a5f;
-  border: 1px solid white;
+input[name="userId"] {
+  border: 2px solid #0b3d91;
 }
