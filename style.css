@@ -7,6 +7,9 @@ Version: 1.0
 Description: External CSS file for Patient Registration Form.
 */
 
+/* =========================
+   PAGE
+========================= */
 body {
   font-family: Arial, sans-serif;
   background-color: #eef3f9;
@@ -14,74 +17,62 @@ body {
   color: #222;
 }
 
+/* Default heading color (outside banner) */
 h1, h2 {
   color: #0b3d91;
 }
 
-a:link {
-  color: blue;
-}
+/* Default links */
+a:link { color: blue; }
+a:visited { color: purple; }
 
-a:visited {
-  color: purple;
-}
-
+/* =========================
+   HEADER / BANNER
+========================= */
 #banner {
   background-color: #0b3d91;
   color: white;
-  padding: 10px;
-  text-align: center;
-}
-
-#main {
-  padding: 20px;
-}
-
-/* ===== FOOTER FIX ===== */
-/* ===== SIMPLE FOOTER ===== */
-#footer {
-  background-color: #0f2a5f;
-  color: white;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 15px 20px;
+  justify-content: space-between;
+  padding: 10px 20px;
 }
 
 /* 3 sections */
-.footer-left,
-.footer-center,
-.footer-right {
+.banner-left,
+.banner-center,
+.banner-right {
   flex: 1;
 }
 
-/* alignment */
-.footer-left {
-  text-align: left;
-}
-
-.footer-center {
+.banner-center {
   text-align: center;
 }
 
-.footer-right {
+.banner-right {
   text-align: right;
 }
 
-/* links */
-#footer a {
+/* FORCE header text to stay white */
+#banner h1,
+#banner .tagline,
+#banner .date-line,
+#banner .date {
   color: white;
-  text-decoration: none;
-  margin: 0 5px;
+  margin: 5px 0;
 }
 
-#footer a:hover {
-  text-decoration: underline;
-}
-
+/* logo */
 #logo {
   width: 60px;
   height: auto;
+}
+
+/* =========================
+   MAIN FORM
+========================= */
+#main {
+  padding: 20px;
 }
 
 .form-table {
@@ -93,16 +84,85 @@ a:visited {
   padding-right: 10px;
 }
 
+/* Inputs */
+input,
+select,
+textarea {
+  padding: 5px;
+}
+
+/* fix radio + checkbox alignment */
+input[type="radio"],
+input[type="checkbox"] {
+  width: auto;
+}
+
+/* Buttons */
 .btn {
   padding: 6px 12px;
   margin-right: 8px;
 }
 
+/* User ID highlight */
 input[name="userId"] {
   border: 2px solid #0b3d91;
 }
 
-input[type="radio"],
-input[type="checkbox"] {
-  width: auto;
+/* =========================
+   FOOTER
+========================= */
+#footer {
+  background-color: #0f2a5f;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 20px;
+  flex-wrap: nowrap;
+}
+
+/* 3 footer sections */
+.footer-left,
+.footer-center,
+.footer-right {
+  flex: 1;
+}
+
+.footer-left {
+  text-align: left;
+}
+
+.footer-center {
+  text-align: center;
+}
+
+.footer-right {
+  text-align: right;
+  white-space: nowrap;
+}
+
+/* FORCE footer links to white */
+#footer a,
+#footer a:link,
+#footer a:visited {
+  color: white !important;
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+#footer a:hover {
+  text-decoration: underline;
+}
+
+.dot {
+  margin: 0 5px;
+}
+
+/* footer button */
+.footer-btn {
+  background-color: white;
+  color: #0f2a5f;
+  border: none;
+  padding: 8px 14px;
+  cursor: pointer;
 }
