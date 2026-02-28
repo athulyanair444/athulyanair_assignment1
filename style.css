@@ -67,3 +67,8 @@ a:visited {
 input[name="userId"] {
   border: 2px solid #0b3d91;
 }
+
+input[type="radio"],
+input[type="checkbox"] {
+  width: auto;
+}
