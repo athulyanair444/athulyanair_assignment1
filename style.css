@@ -7,6 +7,9 @@ Version: 1.0
 Description: External CSS file for Patient Registration Form.
 */
 
+/* =========================
+   BASIC PAGE STYLE
+========================= */
 body {
   font-family: Arial, sans-serif;
   background-color: #eef3f9;
@@ -14,21 +17,19 @@ body {
   color: #222;
 }
 
-/* Headings */
+/* Headings (default on the page) */
 h1, h2 {
   color: #0b3d91;
 }
 
-/* Link colors */
-a:link {
-  color: blue;
-}
+/* Link colors (default on the page) */
+a:link { color: blue; }
+a:visited { color: purple; }
 
-a:visited {
-  color: purple;
-}
-
-/* ID selector */
+/* =========================
+   HEADER / BANNER
+   (Fix: force banner text to stay white)
+========================= */
 #banner {
   display: flex;
   align-items: center;
@@ -39,17 +40,40 @@ a:visited {
   border-bottom: 4px solid #102a43;
 }
 
-/* ID selector */
+/* Make the 3 banner sections behave evenly */
+.banner-left,
+.banner-center,
+.banner-right {
+  flex: 1;
+}
+
+.banner-center {
+  text-align: center;
+}
+
+.banner-right {
+  text-align: right;
+}
+
+/* Fix: your global h1 rule makes h1 blue, so override it in the banner */
+#banner h1,
+#banner .tagline,
+#banner .date-line,
+#banner .date {
+  color: white;
+}
+
 #logo {
   width: 70px;
   height: 70px;
   object-fit: contain;
+  /* If you want simpler, you can remove the next 3 lines */
   border-radius: 10px;
   background: rgba(255, 255, 255, 0.12);
   padding: 6px;
 }
 
-/* Class selectors */
+/* Center title size */
 .banner-center h1 {
   margin: 0;
   font-size: 26px;
@@ -58,27 +82,29 @@ a:visited {
 
 #banner .tagline {
   margin: 5px 0;
-  font-size: 30px;
-  color: white;
+  font-size: 22px;
 }
 
 #banner .date-line,
 #banner .date {
   margin: 5px 0;
-  font-size: 24px;
-  color: white;
+  font-size: 16px;
 }
 
-/* FORM SECTION */
-h2 {
+/* =========================
+   MAIN SECTION / FORM
+========================= */
+#main h2 {
   color: #0d47a1;
-  margin-left: 20px;
+  margin: 20px;
 }
 
-table {
-  width: 100%;
+/* Table layout */
+table.form-table {
+  width: calc(100% - 40px);
   border-collapse: collapse;
-  margin: 20px;
+  margin: 0 20px 20px 20px;
+  background-color: transparent;
 }
 
 td {
@@ -86,13 +112,13 @@ td {
   vertical-align: middle;
 }
 
-/* LABEL COLUMN */
+/* Label column */
 .label {
   font-weight: bold;
   width: 250px;
 }
 
-/* INPUTS */
+/* Inputs */
 input,
 select,
 textarea {
@@ -102,31 +128,62 @@ textarea {
   font-family: Arial, sans-serif;
 }
 
-/* TEXTAREA */
 textarea {
   width: 400px;
   height: 80px;
 }
 
-/* HINT TEXT */
+/* Small helper text */
 .hint {
   font-size: 14px;
   color: #333;
+  margin-left: 8px;
 }
 
-/* BUTTONS */
+/* Optional: group title text */
+.group-title {
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+/* The little "Value:" bubble (keep simple) */
+.pill {
+  margin-left: 10px;
+  font-weight: bold;
+}
+
+/* Buttons */
 button,
 input[type="submit"],
 input[type="reset"] {
   background-color: #0d47a1;
   color: white;
-  
   border: none;
   padding: 8px 15px;
   cursor: pointer;
   margin-top: 10px;
 }
 
+/* If you have .btn classes in HTML, make them consistent */
+.btn {
+  background-color: #0d47a1;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  cursor: pointer;
+}
+
+.btn.secondary {
+  background-color: #6c757d;
+}
+
+.buttons input {
+  margin-right: 10px;
+}
+
+/* =========================
+   FOOTER (matches your HTML: <div id="footer">)
+========================= */
 #footer {
   background-color: #0f2a5f;
   color: white;
@@ -137,23 +194,22 @@ input[type="reset"] {
   margin-top: 20px;
 }
 
-
+/* Left / center / right */
 .footer-left,
 .footer-center,
 .footer-right {
   flex: 1;
 }
 
-
 .footer-center {
   text-align: center;
 }
-
 
 .footer-right {
   text-align: right;
 }
 
+/* Footer links */
 .footer-right a {
   color: white;
   text-decoration: none;
@@ -164,7 +220,13 @@ input[type="reset"] {
   text-decoration: underline;
 }
 
-
 .dot {
   margin: 0 5px;
+}
+
+/* Footer button style */
+.footer-btn {
+  background-color: white;
+  color: #0f2a5f;
+  border: 1px solid white;
 }
