@@ -26,6 +26,9 @@ h1, h2 {
 a:link { color: blue; }
 a:visited { color: purple; }
 
+/* =========================
+   HEADER / BANNER
+========================= */
 #banner {
   background-color: #0b3d91;
   color: white;
@@ -35,11 +38,16 @@ a:visited { color: purple; }
   padding: 10px 20px;
 }
 
-/* 3 sections */
+/* left / center / right sections */
 .banner-left,
 .banner-center,
 .banner-right {
   flex: 1;
+}
+
+/* alignment */
+.banner-left {
+  text-align: left;
 }
 
 .banner-center {
@@ -50,7 +58,7 @@ a:visited { color: purple; }
   text-align: right;
 }
 
-/* FORCE header text to stay white */
+/* FORCE header text to white */
 #banner h1,
 #banner .tagline,
 #banner .date-line,
@@ -59,6 +67,11 @@ a:visited { color: purple; }
   margin: 5px 0;
 }
 
+/* logo */
+#logo {
+  width: 60px;
+  height: auto;
+}
 /* logo */
 #logo {
   width: 60px;
