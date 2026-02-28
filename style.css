@@ -38,23 +38,24 @@ a:visited {
 }
 
 /* ===== FOOTER FIX ===== */
+/* ===== SIMPLE FOOTER ===== */
 #footer {
   background-color: #0f2a5f;
   color: white;
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   padding: 15px 20px;
 }
 
-/* keep 3 sections in one row */
+/* 3 sections */
 .footer-left,
 .footer-center,
 .footer-right {
   flex: 1;
 }
 
-/* alignment per section */
+/* alignment */
 .footer-left {
   text-align: left;
 }
@@ -67,14 +68,14 @@ a:visited {
   text-align: right;
 }
 
-/* footer links */
-.footer-right a {
+/* links */
+#footer a {
   color: white;
   text-decoration: none;
   margin: 0 5px;
 }
 
-.footer-right a:hover {
+#footer a:hover {
   text-decoration: underline;
 }
 
