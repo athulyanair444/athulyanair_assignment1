@@ -127,28 +127,44 @@ input[type="reset"] {
   margin-top: 10px;
 }
 
-footer
-{
+#footer {
   background-color: #0f2a5f;
   color: white;
-  text-align: center;
-  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
   margin-top: 20px;
-  width: 100%;
 }
 
-/* Footer links */
-footer a {
+
+.footer-left,
+.footer-center,
+.footer-right {
+  flex: 1;
+}
+
+
+.footer-center {
+  text-align: center;
+}
+
+
+.footer-right {
+  text-align: right;
+}
+
+.footer-right a {
   color: white;
   text-decoration: none;
-  margin: 0 8px;
+  margin: 0 5px;
 }
 
-/* Footer button */
-footer button {
-  background-color: white;
-  color: #0f2a5f;
-  border: 1px solid #0f2a5f;
-  padding: 6px 12px;
-  cursor: pointer;
+.footer-right a:hover {
+  text-decoration: underline;
+}
+
+
+.dot {
+  margin: 0 5px;
 }
