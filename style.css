@@ -120,8 +120,19 @@ input[type="submit"],
 input[type="reset"] {
   background-color: #0d47a1;
   color: white;
+  
   border: none;
   padding: 8px 15px;
   cursor: pointer;
   margin-top: 10px;
+}
+
+footer
+{
+  background-color: #0f2a5f;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  margin-top: 20px;
+  font-size: 14px;
 }
