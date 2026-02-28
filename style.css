@@ -26,9 +26,6 @@ h1, h2 {
 a:link { color: blue; }
 a:visited { color: purple; }
 
-/* =========================
-   HEADER / BANNER
-========================= */
 #banner {
   background-color: #0b3d91;
   color: white;
