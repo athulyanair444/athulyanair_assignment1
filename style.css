@@ -7,15 +7,6 @@ Version: 1.0
 Description: External CSS file for Patient Registration Form.
 */
 
-/* Basic page styling */
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f5f5f5;
-  margin: 20px;
-  color: #000;
-}
-
-/* Banner */
 #banner {
   background-color: #0d47a1;
   color: white;
@@ -30,48 +21,6 @@ body {
 #banner p {
   margin: 5px 0;
 }
-
-/* Logo */
-#logo {
-  height: 60px;
-}
-
-/* Table styling */
-table {
-  width: 100%;
-  border-collapse: collapse;
-  background-color: white;
-}
-
-/* Table cells */
-td {
-  padding: 10px;
-  border: 1px solid #ccc;
-}
-
-/* Label column */
-.label {
-  background-color: #e8f0f5;
-  font-weight: bold;
-  width: 200px;
-}
-
-/* Inputs */
-input, select {
-  padding: 5px;
-  width: 95%;
-  border: 1px solid #999;
-}
-
-/* Hint text (simple) */
-.hint {
-  font-size: 12px;
-  color: #555;
-}
-
-/* Buttons */
-button {
-  background-color: #2c6e91;
   color: white;
   border: none;
   padding: 8px 15px;
