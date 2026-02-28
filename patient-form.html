@@ -19,16 +19,16 @@ Description: Patient registration form to capture demographic and basic health i
 
     <script>
     //JavaScript for dynamic day/date in banner 
-      function setBannerDate()
-      {
+      function setBannerDate() {
       document.getElementById("todayDate").textContent =
-      new Date().toDateString();
-      }
-      function syncHealthValue(val)
-      {
-        document.getElementById("healthValue").textContent = val;
-      }
-      );
+        new Date().toDateString();
+    }
+
+    window.addEventListener("DOMContentLoaded", () => 
+    {
+      setBannerDate();
+    }
+    );
   </script>
 </head>
 
