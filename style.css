@@ -3,7 +3,7 @@ Program name: style.css
 Author: Athulya Nair
 Date created: 02/25/2026
 Date last edited: 02/27/2026
-Version: 1.0
+Version: 2.3
 Description: External CSS file for Patient Registration Form.
 */
 
@@ -59,14 +59,12 @@ a:visited { color: purple; }
 }
 
 /* FORCE header text to white */
-#banner h1,
-#banner .tagline,
-#banner .date-line,
-#banner .date {
-  color: white;
-  margin: 5px 0;
+#banner h1 {
+  font-family: "Trebuchet MS", sans-serif;
+  font-size: 34px;
+  font-weight: 600;
+  letter-spacing: 1px;
 }
-
 /* logo */
 #logo {
   width: 60px;
