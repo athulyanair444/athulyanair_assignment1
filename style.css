@@ -60,9 +60,10 @@ a:visited { color: purple; }
 
 /* FORCE header text to white */
 #banner h1 {
-  font-family: "Poppins", sans-serif;
-  font-size: 34px;
-  font-weight: 600;
+  color: white;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 38px;
+  font-weight: 700;
   letter-spacing: 1px;
 }
 /* logo */
