@@ -121,6 +121,7 @@ input[name="userId"] {
    FOOTER
 ========================= */
 #footer {
+font-family: 'Quicksand', sans-serif;
   background-color: #0f2a5f;
   color: white;
   display: flex;
