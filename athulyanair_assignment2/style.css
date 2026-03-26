@@ -7,9 +7,7 @@ Version: 3.0
 Description: External CSS file for Homework 2 Patient Registration Form.
 */
 
-/* =========================
-   PAGE
-========================= */
+/* PAGE */
 body {
   font-family: Arial, sans-serif;
   background-color: #eef3f9;
@@ -30,9 +28,7 @@ a:visited {
   color: purple;
 }
 
-/* =========================
-   HEADER / BANNER
-========================= */
+/*  HEADER / BANNER */
 #banner {
   background-color: #0b3d91;
   color: white;
@@ -86,9 +82,7 @@ a:visited {
   height: auto;
 }
 
-/* =========================
-   MAIN
-========================= */
+/*  MAIN */
 #main {
   padding: 20px;
 }
@@ -107,9 +101,7 @@ a:visited {
   flex-wrap: wrap;
 }
 
-/* =========================
-   FORM PANEL
-========================= */
+/* FORM PANEL */
 .form-panel {
   flex: 1 1 620px;
   background-color: white;
@@ -233,9 +225,7 @@ input[name="userId"] {
   border: 2px solid #0b3d91;
 }
 
-/* =========================
-   REVIEW PANEL
-========================= */
+/* REVIEW PANEL */
 .review-panel {
   flex: 1 1 340px;
   background-color: white;
@@ -263,9 +253,7 @@ input[name="userId"] {
   line-height: 1.5;
 }
 
-/* =========================
-   FOOTER
-========================= */
+/*  FOOTER */
 #footer {
   font-family: 'Quicksand', sans-serif;
   background-color: #0f2a5f;
@@ -323,9 +311,7 @@ input[name="userId"] {
   font-weight: bold;
 }
 
-/* =========================
-   RESPONSIVE
-========================= */
+/*  RESPONSIVE */
 @media (max-width: 900px) {
   .page-layout {
     flex-direction: column;
