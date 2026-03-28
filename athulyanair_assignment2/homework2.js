@@ -1,9 +1,9 @@
 /*
 Program name: homework2.js
 Author: Athulya Nair
-Date created: 03/25/2026
-Date last edited: 03/25/2026
-Version: 1.0
+Date created: 03/15/2026
+Date last edited: 03/27/2026
+Version: 1.1
 Description: External JavaScript for Homework 2 Patient Registration Form.
 */
 
@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
   setupResetButton();
   setupLowercaseUserId();
   setupSubmitValidation();
+  setupPasswordLiveValidation();
 });
 
 /* =========================
@@ -49,6 +50,49 @@ function setupLowercaseUserId() {
   if (userId) {
     userId.addEventListener("input", function () {
       userId.value = userId.value.toLowerCase();
+    });
+  }
+}
+
+/* =========================
+   LIVE PASSWORD VALIDATION
+========================= */
+function setupPasswordLiveValidation() {
+  var pw1 = document.getElementById("pw1");
+  var pw2 = document.getElementById("pw2");
+
+  if (pw1) {
+    pw1.addEventListener("input", function () {
+      if (pw1.value === "") {
+        showError("pw1Error", "");
+      } else if (!validatePassword(pw1.value)) {
+        showError(
+          "pw1Error",
+          "Password must be 8 to 30 characters and include uppercase, lowercase, a number, and a special character."
+        );
+      } else {
+        showError("pw1Error", "");
+      }
+
+      if (pw2 && pw2.value !== "") {
+        if (pw1.value !== pw2.value) {
+          showError("pw2Error", "Passwords do not match.");
+        } else {
+          showError("pw2Error", "");
+        }
+      }
+    });
+  }
+
+  if (pw2) {
+    pw2.addEventListener("input", function () {
+      if (pw2.value === "") {
+        showError("pw2Error", "");
+      } else if (pw1.value !== pw2.value) {
+        showError("pw2Error", "Passwords do not match.");
+      } else {
+        showError("pw2Error", "");
+      }
     });
   }
 }
@@ -415,9 +459,13 @@ function formatSSN(ssn) {
   var digits = ssn.replace(/\D/g, "");
 
   if (digits.length === 9) {
-    return digits.substring(0, 3) + "-" +
-           digits.substring(3, 5) + "-" +
-           digits.substring(5);
+    return (
+      digits.substring(0, 3) +
+      "-" +
+      digits.substring(3, 5) +
+      "-" +
+      digits.substring(5)
+    );
   }
 
   return ssn;
