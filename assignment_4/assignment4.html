@@ -1,1 +1,496 @@
-hello
+<!--
+Program name: assignment4.html
+Author: Athulya Nair
+Date created: 05/08/2026
+Description: UnityCare Health patient registration form with Fetch API, iFrame,
+fixed header/footer, cookies, and local storage for Homework 4.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UnityCare Health - Patient Registration</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600;700&display=swap" rel="stylesheet" />
+  <link href="style.css" rel="stylesheet" />
+  <script src="assignment4.js" defer></script>
+</head>
+
+<body>
+  <!-- FIXED / PROTECTED HEADER -->
+  <div id="banner">
+    <div class="banner-left">
+      <img src="unitycare health logo.jpg" alt="UnityCare Health Logo" id="logo" />
+    </div>
+
+    <div class="banner-center">
+      <h1>UnityCare Health</h1>
+      <p class="tagline">Patient Registration</p>
+      <p id="welcomeMessage">Welcome New User</p>
+
+      <div id="newUserBox" style="display: none;">
+        <label>
+          <input type="checkbox" id="notUser" onclick="startNewUser()" />
+          <span id="notUserText"></span>
+        </label>
+      </div>
+    </div>
+
+    <div class="banner-right">
+      <p class="date-line">Today is:</p>
+      <p class="date" id="todayDate"></p>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div id="main">
+    <h2>Create Your New Patient Account</h2>
+
+    <!-- IFRAME REQUIREMENT -->
+    <div class="iframe-section">
+      <h3>Patient Health Information</h3>
+      <iframe
+        src="https://www.cdc.gov"
+        title="CDC Health Information"
+        width="100%"
+        height="300"
+        loading="lazy">
+      </iframe>
+    </div>
+
+    <div class="page-layout">
+      <!-- FORM AREA -->
+      <div class="form-panel">
+        <form id="patientForm" action="thankyou.html" method="get" novalidate>
+          <table class="form-table">
+            <tr>
+              <td class="label"><label for="firstName">First Name</label></td>
+              <td>
+                <input
+                  type="text"
+                  id="firstName"
+                  name="firstName"
+                  maxlength="30"
+                  pattern="^[A-Za-z'-]{1,30}$"
+                  title="Required. Letters, apostrophes, and dashes only."
+                  onblur="saveLocalData()"
+                  required
+                />
+                <span class="hint">Required. Letters, apostrophes, and dashes only.</span>
+                <span class="error" id="firstNameError"></span>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="label"><label for="middleInitial">Middle Initial</label></td>
+              <td>
+                <input
+                  type="text"
+                  id="middleInitial"
+                  name="middleInitial"
+                  maxlength="1"
+                  pattern="^[A-Za-z]?$"
+                  title="Optional. One letter only."
+                  onblur="saveLocalData()"
+                />
+                <span class="hint">Optional. One letter only.</span>
+                <span class="error" id="middleInitialError"></span>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="label"><label for="lastName">Last Name</label></td>
+              <td>
+                <input
+                  type="text"
+                  id="lastName"
+                  name="lastName"
+                  maxlength="30"
+                  pattern="^[A-Za-z'-]{1,30}$"
+                  title="Required. Letters, apostrophes, and dashes only."
+                  onblur="saveLocalData()"
+                  required
+                />
+                <span class="hint">Required. Letters, apostrophes, and dashes only.</span>
+                <span class="error" id="lastNameError"></span>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="label"><label for="dob">Date of Birth</label></td>
+              <td>
+                <input
+                  type="text"
+                  id="dob"
+                  name="dob"
+                  placeholder="MM/DD/YYYY"
+                  pattern="^(0[1-9]|1[0-2])\/(0[1-9]|[12][0-9]|3[01])\/\d{4}$"
+                  title="Required. Enter date of birth as MM/DD/YYYY."
+                  required
+                />
+                <span class="hint">Required. Format: MM/DD/YYYY.</span>
+                <span class="error" id="dobError"></span>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="label"><label for="ssn">Social Security Number</label></td>
+              <td>
+                <input
+                  type="password"
+                  id="ssn"
+                  name="ssn"
+                  placeholder="XXX-XX-XXXX"
+                  pattern="^\d{3}-\d{2}-\d{4}$"
+                  minlength="11"
+                  maxlength="11"
+                  title="Required. Enter 9 digits. Dashes will be added automatically."
+                  required
+                />
+                <span class="hint">Required. Obscured field. Not saved.</span>
+                <span class="error" id="ssnError"></span>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="label"><label for="email">Email Address</label></td>
+              <td>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="name@example.com"
+                  title="Required. Enter a valid email address."
+                  onblur="saveLocalData()"
+                  required
+                />
+                <span class="hint">Required. Example: name@example.com</span>
+                <span class="error" id="emailError"></span>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="label"><label for="phone">Phone Number</label></td>
+              <td>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  placeholder="000-000-0000"
+                  pattern="^\d{3}-\d{3}-\d{4}$"
+                  title="Required. Enter phone number as 000-000-0000."
+                  onblur="saveLocalData()"
+                  required
+                />
+                <span class="hint">Required. Format: 000-000-0000</span>
+                <span class="error" id="phoneError"></span>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="label"><label for="addr1">Address Line 1</label></td>
+              <td>
+                <input
+                  type="text"
+                  id="addr1"
+                  name="addr1"
+                  minlength="2"
+                  maxlength="30"
+                  title="Required. Enter 2 to 30 characters."
+                  onblur="saveLocalData()"
+                  required
+                />
+                <span class="hint">Required. 2 to 30 characters.</span>
+                <span class="error" id="addr1Error"></span>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="label"><label for="addr2">Address Line 2</label></td>
+              <td>
+                <input
+                  type="text"
+                  id="addr2"
+                  name="addr2"
+                  minlength="2"
+                  maxlength="30"
+                  title="Optional. If entered, use 2 to 30 characters."
+                  onblur="saveLocalData()"
+                />
+                <span class="hint">Optional. If entered, 2 to 30 characters.</span>
+                <span class="error" id="addr2Error"></span>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="label"><label for="city">City</label></td>
+              <td>
+                <input
+                  type="text"
+                  id="city"
+                  name="city"
+                  minlength="2"
+                  maxlength="30"
+                  pattern="^[A-Za-z .'-]{2,30}$"
+                  title="Required. Letters, spaces, apostrophes, periods, or dashes only."
+                  onblur="saveLocalData()"
+                  required
+                />
+                <span class="hint">Required. 2 to 30 characters.</span>
+                <span class="error" id="cityError"></span>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="label"><label for="state">State</label></td>
+              <td>
+                <!-- State options will be loaded using Fetch API from states.json -->
+                <select
+                  id="state"
+                  name="state"
+                  title="Required. Select a state."
+                  onchange="saveLocalData()"
+                  required>
+                  <option value="">-- Select State/Territory --</option>
+                </select>
+                <span class="hint">Required. Loaded using Fetch API.</span>
+                <span class="error" id="stateError"></span>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="label"><label for="zip">Zip Code</label></td>
+              <td>
+                <input
+                  type="text"
+                  id="zip"
+                  name="zip"
+                  placeholder="#####"
+                  pattern="^\d{5}$"
+                  maxlength="5"
+                  title="Required. Enter exactly 5 digits."
+                  onblur="saveLocalData()"
+                  required
+                />
+                <span class="hint">Required. 5 digits only.</span>
+                <span class="error" id="zipError"></span>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="label">Medical History</td>
+              <td>
+                <div class="group-title">Check all that apply:</div>
+                <label><input type="checkbox" name="history" value="Chicken Pox" onchange="saveLocalData()" /> Chicken Pox</label><br />
+                <label><input type="checkbox" name="history" value="Measles" onchange="saveLocalData()" /> Measles</label><br />
+                <label><input type="checkbox" name="history" value="Covid-19" onchange="saveLocalData()" /> Covid-19</label><br />
+                <label><input type="checkbox" name="history" value="Heart Disease" onchange="saveLocalData()" /> Heart Disease</label><br />
+                <label><input type="checkbox" name="history" value="Diabetes" onchange="saveLocalData()" /> Diabetes</label><br />
+                <label><input type="checkbox" name="history" value="Tetanus" onchange="saveLocalData()" /> Tetanus</label>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="label">Gender</td>
+              <td>
+                <label><input type="radio" name="gender" value="Male" onchange="saveLocalData()" required /> Male</label>
+                <label><input type="radio" name="gender" value="Female" onchange="saveLocalData()" /> Female</label>
+                <label><input type="radio" name="gender" value="Other" onchange="saveLocalData()" /> Other</label>
+                <span class="error" id="genderError"></span>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="label">Vaccinated?</td>
+              <td>
+                <label><input type="radio" name="vaccinated" value="Yes" onchange="saveLocalData()" required /> Yes</label>
+                <label><input type="radio" name="vaccinated" value="No" onchange="saveLocalData()" /> No</label>
+                <span class="error" id="vaccinatedError"></span>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="label">Do you have insurance?</td>
+              <td>
+                <label><input type="radio" name="insurance" value="Yes" onchange="saveLocalData()" required /> Yes</label>
+                <label><input type="radio" name="insurance" value="No" onchange="saveLocalData()" /> No</label>
+                <span class="error" id="insuranceError"></span>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="label"><label for="healthScale">Pain Level</label></td>
+              <td>
+                <div class="group-title">On a scale of 1 to 10:</div>
+                <input
+                  type="range"
+                  id="healthScale"
+                  name="healthScale"
+                  min="1"
+                  max="10"
+                  value="5"
+                  title="Slide to select a number from 1 to 10."
+                  oninput="document.getElementById('healthValue').textContent = this.value"
+                  onchange="saveLocalData()"
+                />
+                <span class="pill">Value: <span id="healthValue">5</span></span>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="label"><label for="symptoms">Current Symptoms</label></td>
+              <td>
+                <textarea
+                  id="symptoms"
+                  name="symptoms"
+                  rows="4"
+                  cols="50"
+                  placeholder="Describe symptoms..."
+                  title="Optional. Briefly describe your symptoms."
+                  onblur="saveLocalData()"></textarea>
+                <span class="hint">Optional. Briefly describe your symptoms.</span>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="label"><label for="userId">User ID</label></td>
+              <td>
+                <input
+                  type="text"
+                  id="userId"
+                  name="userId"
+                  minlength="5"
+                  maxlength="20"
+                  pattern="^[A-Za-z][A-Za-z0-9_-]{4,19}$"
+                  title="Required. 5 to 20 characters. Must start with a letter. No spaces."
+                  onblur="saveLocalData()"
+                  required
+                />
+                <span class="hint">Required. 5 to 20 characters. Starts with a letter.</span>
+                <span class="error" id="userIdError"></span>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="label"><label for="pw1">Password</label></td>
+              <td>
+                <input
+                  type="password"
+                  id="pw1"
+                  name="pw1"
+                  minlength="8"
+                  maxlength="30"
+                  title="Required. At least 8 characters with uppercase, lowercase, and number."
+                  required
+                />
+                <span class="hint">Required. Not saved.</span>
+                <span class="error" id="pw1Error"></span>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="label"><label for="pw2">Re-enter Password</label></td>
+              <td>
+                <input
+                  type="password"
+                  id="pw2"
+                  name="pw2"
+                  minlength="8"
+                  maxlength="30"
+                  title="Required. Re-enter the same password exactly."
+                  required
+                />
+                <span class="hint">Required. Must exactly match the first password.</span>
+                <span class="error" id="pw2Error"></span>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="label">Remember Me</td>
+              <td>
+                <label>
+                  <input type="checkbox" id="rememberMe" checked />
+                  Remember my first name and non-secure form information
+                </label>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="label"></td>
+              <td class="buttons">
+                <input type="button" class="btn secondary" id="reviewBtn" value="Review" />
+                <input type="button" class="btn primary" id="validateBtn" value="Validate" />
+                <input type="submit" class="btn primary" id="submitBtn" value="Submit" style="display: none;" />
+                <input type="reset" class="btn secondary" id="resetBtn" value="Clear and Start Over" />
+              </td>
+            </tr>
+          </table>
+        </form>
+      </div>
+
+      <!-- REVIEW AREA -->
+      <div class="review-panel" id="reviewSection">
+        <h2>Please Review This Information</h2>
+
+        <div class="review-block">
+          <p><strong>Full Name:</strong> <span id="reviewName"></span></p>
+          <p><strong>Date of Birth:</strong> <span id="reviewDob"></span></p>
+          <p><strong>Social Security:</strong> <span id="reviewSsn"></span></p>
+        </div>
+
+        <div class="review-block">
+          <p><strong>Email Address:</strong> <span id="reviewEmail"></span></p>
+          <p><strong>Phone Number:</strong> <span id="reviewPhone"></span></p>
+        </div>
+
+        <div class="review-block">
+          <p><strong>Address:</strong></p>
+          <p id="reviewAddress"></p>
+        </div>
+
+        <div class="review-block">
+          <p><strong>Medical History:</strong> <span id="reviewHistory"></span></p>
+          <p><strong>Gender:</strong> <span id="reviewGender"></span></p>
+          <p><strong>Vaccinated:</strong> <span id="reviewVaccinated"></span></p>
+          <p><strong>Insurance:</strong> <span id="reviewInsurance"></span></p>
+          <p><strong>Pain Level:</strong> <span id="reviewHealthScale"></span></p>
+          <p><strong>Current Symptoms:</strong> <span id="reviewSymptoms"></span></p>
+        </div>
+
+        <div class="review-block">
+          <p><strong>User ID:</strong> <span id="reviewUserId"></span></p>
+          <p><strong>Password:</strong> <span id="reviewPassword"></span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FIXED / PROTECTED FOOTER -->
+  <footer id="footer">
+    <div class="footer-left">
+      <strong>UnityCare Health</strong><br />
+      PO BOX 18881<br />
+      Sugar Land, TX 77496
+    </div>
+
+    <div class="footer-center">
+      <button
+        type="button"
+        class="footer-btn"
+        onclick="alert('Contact Us: unitycarehealth@gmail.com')">
+        CONTACT US
+      </button>
+    </div>
+
+    <div class="footer-right">
+      <a href="https://www.facebook.com" target="_blank" rel="noopener">Facebook</a>
+      <span class="dot">•</span>
+      <a href="https://www.twitter.com" target="_blank" rel="noopener">Twitter</a>
+      <span class="dot">•</span>
+      <a href="https://www.instagram.com" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </footer>
+</body>
+</html>
